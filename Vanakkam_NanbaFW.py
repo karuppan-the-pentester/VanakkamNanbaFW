@@ -6,7 +6,9 @@ import time
 
 
 def ProgramStartingAnimation():
-    "This Function Gives Starting Animation Like Metasploit"
+    '''
+    This Function Provides You an animation Like Metasploit starting animation
+    '''
     load_str = "Starting Mr.Techie...."
     ls_len = len(load_str)
     animation = "|/-\\"
