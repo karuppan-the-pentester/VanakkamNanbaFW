@@ -9,7 +9,7 @@ def ProgramStartingAnimation():
     '''
     This Function Provides You an animation Like Metasploit starting animation
     '''
-    load_str = "Starting Mr.Techie...."
+    load_str = "Starting Vanakkam Nanba FrameWork.... "
     ls_len = len(load_str)
     animation = "|/-\\"
     anicount = 0
@@ -35,10 +35,10 @@ def ProgramStartingAnimation():
         anicount = (anicount + 1) % 4
         i = (i + 1) % ls_len
         counttime = counttime + 1
-    if os.name == "nt":
-        os.system("cls")
-    else:
-        os.system("clear")
+    # if os.name == "nt":
+    #     os.system("cls")
+    # else:
+    #     os.system("clear")
 
 
 ProgramStartingAnimation()
