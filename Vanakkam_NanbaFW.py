@@ -3,6 +3,7 @@
 import os
 import sys
 import time
+import getopt
 
 
 def ProgramStartingAnimation():
@@ -46,13 +47,20 @@ def banner():
                             |||     |||
 
 
-       =[ vanakkam_nanba v1.0.0-dev                       ]
-+ -- --=[ 1 exploits - 1 auxiliary - 1 post               ]
-+ -- --=[ 0 payloads - 0 encoders  - 0 nops               ]
-+ -- --=[ 0 evasion                                       ]
-''', ]
+       =[ vanakkam_nanba v1.0.0-dev                ]
++ -- --=[ 1 exploits - 1 auxiliary - 1 post        ]
++ -- --=[ 0 payloads - 0 encoders  - 0 nops        ]
++ -- --=[ 0 evasion                                ]
+''', '''
+
+''']
     print(banners[0])
 
 
-ProgramStartingAnimation()
-banner()
+if len(sys.argv) >= 2:
+    print(sys.argv)
+    time.sleep(5)
+    banner()
+else:
+    ProgramStartingAnimation()
+    banner()
