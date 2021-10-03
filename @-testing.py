@@ -7,16 +7,15 @@ def cmd_help():
 
 
 argv = sys.argv[1:]
-
+options = "hq:"
+l_options = ["help", "quick"]
 try:
-    opts, args = getopt.getopt(argv, "h:")
-    # print(getopt.getopt(argv, "h:"))
-except:
-    print("Error")
+    arguments, values = getopt.getopt(argv, options, l_options)
+    for currentArgument, currentValue in arguments:
+        if currentArgument in ("-h", "--help"):
+            print("Displaying Help")
+        elif currentArgument in ("-q", "--quick"):
+            print("Quick")
 
-for opt, arg in opts:
-    if opt in ['-h', '--help']:
-        cmd_help()
-
-
-print()
+except Exception as e:
+    print(e)

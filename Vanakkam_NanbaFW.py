@@ -4,6 +4,7 @@ import os
 import sys
 import time
 import getopt
+from VN import *
 
 
 def ProgramStartingAnimation():
@@ -57,10 +58,18 @@ def banner():
     print(banners[0])
 
 
-if len(sys.argv) >= 2:
-    print(sys.argv)
-    time.sleep(5)
-    banner()
-else:
-    ProgramStartingAnimation()
-    banner()
+argv = sys.argv[1:]
+options = "hq0:"
+l_options = ["help", "quick", "none"]
+try:
+    arguments, values = getopt.getopt(argv, options, l_options)
+    for currentArgument, currentValue in arguments:
+        if currentArgument in ("-h", "--help"):
+            print("Usage"+red + "Help")
+        elif currentArgument in ("-q", "--quick"):
+            time.sleep(3)
+    if len(sys.argv) == 1:
+        ProgramStartingAnimation()
+        banner()
+except Exception as e:
+    print(e)
