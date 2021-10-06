@@ -59,17 +59,21 @@ def banner():
 
 
 argv = sys.argv[1:]
-options = "hq0:"
-l_options = ["help", "quick", "none"]
+options = "hqgC0:"
+l_options = ["help", "quick", "graphical", "create-db", "none"]
 try:
     arguments, values = getopt.getopt(argv, options, l_options)
     for currentArgument, currentValue in arguments:
         if currentArgument in ("-h", "--help"):
-            print("Help")
+            Message.Help_Message()
         elif currentArgument in ("-q", "--quick"):
             time.sleep(3)
+        elif currentArgument in ("-C", "--create-db"):
+            Function.Create_Db()
     if len(sys.argv) == 1:
         ProgramStartingAnimation()
         banner()
+except KeyboardInterrupt:
+    print()
 except Exception as e:
     print(e)
