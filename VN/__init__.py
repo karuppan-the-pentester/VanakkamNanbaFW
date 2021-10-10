@@ -1,6 +1,10 @@
 import colored
 import time
 
+orange = colored.fg("dark_orange")
+green1 = colored.fg("spring_green_2a")
+reset = colored.attr("reset")
+
 
 class Message:
     def Help_Message():

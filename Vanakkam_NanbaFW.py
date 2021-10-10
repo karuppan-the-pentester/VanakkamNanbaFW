@@ -36,7 +36,7 @@ def banner():
     This Function provides You Banner
     '''
     banners = [
-        '''
+        green1+'''
                  ,           ,
                 /             \\
                ((__---,,,---__))
@@ -47,8 +47,8 @@ def banner():
                             |||   WW|||
                             |||     |||
 
-
-       =[ vanakkam_nanba v1.0.0-dev                ]
+'''+reset+'''
+       =[ '''+orange+'''vanakkam_nanba v1.0.0-dev '''+reset+'''               ]
 + -- --=[ 1 exploits - 1 auxiliary - 1 post        ]
 + -- --=[ 0 payloads - 0 encoders  - 0 nops        ]
 + -- --=[ 0 evasion                                ]
@@ -59,21 +59,28 @@ def banner():
 
 
 argv = sys.argv[1:]
-options = "hqgC0:"
-l_options = ["help", "quick", "graphical", "create-db", "none"]
+options = "hqgwvC0:"
+l_options = ["help", "quick", "graphical-interface",
+             "web-interface", "version", "create-db", "none"]
 try:
-    arguments, values = getopt.getopt(argv, options, l_options)
-    for currentArgument, currentValue in arguments:
-        if currentArgument in ("-h", "--help"):
-            Message.Help_Message()
-        elif currentArgument in ("-q", "--quick"):
-            time.sleep(3)
-        elif currentArgument in ("-C", "--create-db"):
-            Function.Create_Db()
     if len(sys.argv) == 1:
         ProgramStartingAnimation()
         banner()
+        while True:
+            input("\u0332vnf1> ")
+    else:
+        arguments, values = getopt.getopt(argv, options, l_options)
+        for currentArgument, currentValue in arguments:
+            if currentArgument in ("-h", "--help"):
+                Message.Help_Message()
+            elif currentArgument in ("-q", "--quick"):
+                time.sleep(3)
+            elif currentArgument in ("-C", "--create-db"):
+                Function.Create_Db()
+        if len(sys.argv) == 1:
+            ProgramStartingAnimation()
+            banner()
 except KeyboardInterrupt:
-    print()
+    print("Hi")
 except Exception as e:
     print(e)
