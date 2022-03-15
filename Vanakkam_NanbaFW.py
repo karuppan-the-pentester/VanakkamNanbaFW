@@ -67,7 +67,7 @@ try:
         ProgramStartingAnimation()
         banner()
         while True:
-            input("\u0332vnf1> ")
+            input("vnf1> ")
     else:
         arguments, values = getopt.getopt(argv, options, l_options)
         for currentArgument, currentValue in arguments:
