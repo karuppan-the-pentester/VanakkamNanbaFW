@@ -5,6 +5,7 @@ import sys
 import time
 import getopt
 from VN import *
+from VN.incall import Incall
 
 
 def ProgramStartingAnimation():
@@ -66,8 +67,8 @@ try:
     if len(sys.argv) == 1:
         ProgramStartingAnimation()
         banner()
-        while True:
-            input("vnf1> ")
+        Incall.icall()
+
     else:
         arguments, values = getopt.getopt(argv, options, l_options)
         for currentArgument, currentValue in arguments:
@@ -75,12 +76,20 @@ try:
                 Message.Help_Message()
             elif currentArgument in ("-q", "--quick"):
                 time.sleep(3)
+                Incall.icall()
             elif currentArgument in ("-C", "--create-db"):
                 Function.Create_Db()
+            elif currentArgument in ("-v", "--version"):
+                Message.Verrsion_Message()
         if len(sys.argv) == 1:
             ProgramStartingAnimation()
             banner()
 except KeyboardInterrupt:
-    print("Hi")
+    print("\nKeyboard Interrupt")
+    ki = str(input("If you want to continue to work[Y/n]: "))
+    if ki.lower() == "y" or "yes":
+        Incall.icall()
+    else:
+        exit()
 except Exception as e:
     print(e)
